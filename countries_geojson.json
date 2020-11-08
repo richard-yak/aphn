@@ -6,6 +6,7 @@
       "properties": {
         "name": "Myanmar",
         "slug": "myanmar",
+        "date": "June 2013",
         "ISO_A3": "MMR"
       },
       "geometry": {
@@ -18607,6 +18608,7 @@
       "properties": {
         "name": "Sri Lanka",
         "slug": "sri-lanka",
+        "date": "March 2014",
         "ISO_A3": "LKA"
       },
       "geometry": {
@@ -22208,6 +22210,7 @@
       "properties": {
         "name": "Bangladesh",
         "slug": "bangladesh",
+        "date": "July 2013",
         "ISO_A3": "BGD"
       },
       "geometry": {
@@ -31445,6 +31448,7 @@
       "properties": {
         "name": "India",
         "slug": "india",
+        "date": "March 2015",
         "ISO_A3": "IND"
       },
       "geometry": {
@@ -62782,6 +62786,7 @@
       "properties": {
         "name": "Bhutan",
         "slug": "bhutan",
+        "date": "Jan 2019",
         "ISO_A3": "BTN"
       },
       "geometry": {
