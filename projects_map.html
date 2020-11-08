@@ -8,6 +8,7 @@
         #map {
             height: 100%;
         }
+
         /* Optional: Makes the sample page fill the window. */
         html, body {
             height: 100%;
@@ -17,16 +18,19 @@
     </style>
 </head>
 <body>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGvEvJL7RQNwoxgWHcElAWFN_osDhwhvs&callback=initMap&libraries=geometry" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGvEvJL7RQNwoxgWHcElAWFN_osDhwhvs&callback=initMap&libraries=geometry"
+        async defer></script>
 <div id="map"></div>
 <script>
+
     var map;
     var google = new google;
+
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 4,
             center: {lat: 19.7194933, lng: 88.7650998},
-            keyboardShortcuts : false,
+            keyboardShortcuts: false,
             gestureHandling: "none",
             disableDefaultUI: true,
             styles: [
@@ -225,10 +229,11 @@
             strokeWeight: 1,
         });
         var infowindow;
-        map.data.addListener('mouseover', function(event) {
+        map.data.addListener('mouseover', function (event) {
             // Change colour when hovered over area
             map.data.overrideStyle(event.feature, {fillColor: '#d3d6d1', strokeStyle: '#F8901F'});
-            var displayContent = '<h1>' + event.feature.getProperty('name') + '</h1>' + '<h2>' + event.feature.getProperty('') + '</h2>';
+            var displayContent = '<h3>' + event.feature.getProperty('name') + '</h3>' + '<p>Started on ' + event.feature.getProperty('date') + '</p>'
+            + `<p style={font-size: 6px}>` + 'Click for more details' + '</p>';
             infowindow = new google.maps.InfoWindow({
                 content: displayContent
             });
@@ -236,7 +241,7 @@
             infowindow.open(map)
         });
         /* Must scope here */
-        map.data.addListener('mouseout', function(event) {
+        map.data.addListener('mouseout', function (event) {
             // Change colour back
             map.data.revertStyle();
             // Close the infowindow when mouse is out
@@ -244,14 +249,14 @@
                 infowindow.close();
             }
         });
-        map.data.addListener('click', function(event) {
-            var url = 'https://www.google.com/search?q=' + event.feature.getProperty('name');
+        map.data.addListener('click', function (event) {
+            var url = '/projects/' + event.feature.getProperty('slug');
             window.open(url, '_blank') // open in new tab
         });
 
     }
-    new google.maps.event.addDomListener(window, 'load', initialize);
 
+    new google.maps.event.addDomListener(window, 'load', initialize);
 
 
 </script>
