@@ -31,17 +31,7 @@
             zoom: 3.7,
             center: {lat: 13.0089686, lng: 101.0649131},
             keyboardShortcuts: false,
-            gestureHandling: "none",
-            disableDefaultUI: true,
             styles: [
-                {
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#f5f5f5"
-                        }
-                    ]
-                },
                 {
                     "elementType": "labels.icon",
                     "stylers": [
@@ -50,37 +40,12 @@
                         }
                     ]
                 },
-                {
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#616161"
-                        }
-                    ]
-                },
+
                 {
                     "elementType": "labels.text.stroke",
                     "stylers": [
                         {
                             "color": "#f5f5f5"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "administrative",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "visibility": "off"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "administrative.country",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#bdbdbd"
                         }
                     ]
                 },
@@ -168,15 +133,6 @@
                     ]
                 },
                 {
-                    "featureType": "road.local",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#9e9e9e"
-                        }
-                    ]
-                },
-                {
                     "featureType": "transit",
                     "stylers": [
                         {
@@ -201,31 +157,13 @@
                             "color": "#eeeeee"
                         }
                     ]
-                },
-                {
-                    "featureType": "water",
-                    "elementType": "geometry",
-                    "stylers": [
-                        {
-                            "color": "#c9c9c9"
-                        }
-                    ]
-                },
-                {
-                    "featureType": "water",
-                    "elementType": "labels.text.fill",
-                    "stylers": [
-                        {
-                            "color": "#9e9e9e"
-                        }
-                    ]
                 }
             ],
         });
 
         map.data.loadGeoJson("https://raw.githubusercontent.com/richard-yak/aphn/main/countries_geojson.json");
         map.data.setStyle({
-            fillColor: 'black',
+            fillColor: '#000000',
             strokeWeight: 1,
         });
         var infowindow;
@@ -233,7 +171,7 @@
             // Change colour when hovered over area
             map.data.overrideStyle(event.feature, {fillColor: '#d3d6d1', strokeStyle: '#F8901F'});
             var displayContent = '<h3>' + event.feature.getProperty('name') + '</h3>' + '<p>Started on ' + event.feature.getProperty('date') + '</p>'
-            + `<p style={font-size: 6px}>` + 'Click for more details' + '</p>';
+                + `<p style={font-size: 6px}>` + 'Click for more details' + '</p>';
             infowindow = new google.maps.InfoWindow({
                 content: displayContent
             });
